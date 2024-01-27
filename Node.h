@@ -5,30 +5,29 @@
 
 class Node {
   public:
-    /// @brief Node Constructor
-    /// @param weights
-    /// @param bias 
-    /// @param w_size number of weights
-    Node(double* weights, double bias, int w_size) {
+    Node() { }
+    Node(double* weights, int w_size, double bias) {
       this->weights = weights;
       this->w_size = w_size;
       this->bias = bias;
     }
+    ~Node() {
+      delete [] weights;
+    }
     /// @brief 
     /// @param x inputs 
     /// @return  
-    double feedfowardS(double* x) {
+    double feed_forward_sigmoid(double* x) {
       double temp = 0;
       for (int i = 0; i < w_size; i++) {
         temp += (w_size == 1) ? *weights*x[i] : weights[i]*x[i];
       }
       return sigmoid(temp + bias);
     }
-
     /// @brief 
     /// @param x inputs 
     /// @return  
-    double feedfowardT(double* x) {
+    double feed_foward_tanh(double* x) {
       double temp = 0;
       for (int i = 0; i < w_size; i++) {
         temp += (w_size == 1) ? *weights*x[i] : weights[i]*x[i];
