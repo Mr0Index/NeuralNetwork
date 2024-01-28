@@ -1,6 +1,8 @@
 #ifndef LAYER_H
 #define LAYER_H
 
+#include <vector>
+#include "cstdlib"
 #include "math.h"
 #include "Node.h"
 
@@ -11,11 +13,7 @@ class Layer {
       this->w_size = w_size;
       this->layer_size = layer_size;
       this->layer_bias = layer_bias;
-      nodes = new Node[this->layer_size]();
-      update_nodes();
-    }
-    ~Layer() {
-      delete [] layer_weights;
+
     }
     void update_layer(double* layer_weights, int w_size, int layer_size, double* layer_bias) {
       this->layer_weights = layer_weights;

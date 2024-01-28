@@ -11,9 +11,6 @@ class Node {
       this->w_size = w_size;
       this->bias = bias;
     }
-    ~Node() {
-      delete [] weights;
-    }
     /// @brief 
     /// @param x inputs 
     /// @return  
