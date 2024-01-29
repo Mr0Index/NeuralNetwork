@@ -1,5 +1,5 @@
 clean: 
 	rm -f main.bin
 
-Test: main.cpp Node.h Layer.h
-	g++ -Wall -o main.bin -cpp main.cpp Node.h Layer.h
+Test: first_test.cpp Node.h Layer.h
+	g++ -Wall -o main.bin -cpp first_test.cpp Node.h Layer.h
